@@ -1,6 +1,142 @@
 #include <iostream>
 using namespace std;
 
+//v0.4.0: 24/01/2026 - If and Else: Enhancing Conditional Instructions in C++
+/*int main(void) {
+  int year, a, b, c, d, e, easterDay;
+
+  cout << "Enter year: ";
+  cin >> year;
+
+  a = year % 19;
+  b = year % 4;
+  c = year % 7;
+  d = (19 * a + 24) % 30;
+  e = ((2 * b) + (4 * c) + (6 * d) + 5) % 7;
+
+  if (d + e < 10) {
+    easterDay = d + e + 22;
+
+    cout << "\nMarch " << easterDay << endl;
+  } else {
+    easterDay = d + e - 9;
+
+    cout << "\nApril " << easterDay << endl;
+  }
+
+  system("pause");
+  return 0;
+}*/
+/*int main(void) {
+  int year, month, day, weekday;
+
+  cout << "Enter year: ";
+  cin >> year;
+  cout << "Enter month: ";
+  cin >> month;
+  cout << "Enter day number: ";
+  cin >> day;
+
+  if ((month >= 1 && month <= 12) && (day >= 1 && day <= 31)) {
+    month -= 2;
+    if (month <= 0) {
+      month += 12;
+      year -= 1;
+    }
+    month = (month * 83) / 32;
+    month += day;
+    month += year;
+    month += year / 4;
+    month -= year / 100;
+    month += year / 400;;
+    weekday = month % 7;
+
+    cout << "\nWeekday is (0 - Sunday, 1 - Monday, 2 - Tuesday, 3 - Wednesday, 4 - Thursday, 5 - Friday, 6 - Saturday): " << endl;
+    cout << weekday << endl;
+  }
+  else {
+    cout << "\nInvalid month or day number." << endl;
+  }
+
+  system("pause");
+  return 0;
+}*/
+/*int main(void) {
+  int measureSystem, feet;
+  float meters, inches;
+
+  cout << "Select the measurement system:" << endl;
+  cin >> measureSystem;
+
+  if (measureSystem == 0) {
+    cout << "Enter the value in meters: ";
+    cin >> meters;
+
+    inches = meters / 0.0254;
+    feet = inches / 12;
+    inches = inches - (feet * 12);
+
+    cout << "\nThe converted measurement is: " << feet << "'" << inches << "\"" << endl;
+  }
+  else if (measureSystem == 1) {
+      cout << "Enter the value in feet: ";
+      cin >> feet;
+
+      cout << "Enter the value in inches: ";
+      cin >> inches;
+
+      feet *= 12;
+      inches = feet + inches;
+      meters = inches * 0.0254;
+
+      cout << "\nThe converted measurement is: " << meters << "m" << endl;
+  } else {
+    cout << "Invalid measurement system selected." << endl;
+  }
+
+  system("pause");
+  return 0;
+}*/
+/*int main(void) {
+  float grossPrice, taxPerc, netPrice, taxValue;
+
+  cout << "Enter the gross price: ";
+  cin >> grossPrice;
+  cout << "Enter the tax percentage (e.g., enter 20 for 20%): ";
+  cin >> taxPerc;
+
+  if (grossPrice > 0 && taxPerc > 0 && taxPerc < 100) {
+    taxValue = grossPrice - (grossPrice / (1 + (taxPerc / 100)));
+    netPrice = grossPrice - taxValue;
+
+    cout << "\nNet price: " << netPrice << endl;
+    cout << "Tax value: " << taxValue << endl;
+  } else {
+    cout << "\nInvalid input values. Please ensure gross price is greater than zero and tax percentage is between 0 and 100." << endl;
+  }
+
+  system("pause");
+  return 0;
+}*/
+/*int main(void) {
+	int year;
+	
+	cout << "Enter a year: ";
+	cin >> year;
+	
+  if (year < 1582) {
+    cout << "Year falls outside the Gregorian calendar." << endl;
+  }
+  else if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
+    cout << "Leap year." << endl;
+  } else {
+    cout << "Common year." << endl;
+  }
+
+  system("pause");
+	return 0;
+}*/
+
 //v0.3.0: 23/01/2026 - Making Simple Decisions: Intro to Flow Control in C++
 /*int main(void) {
   int num1, num2, num3, num4;
