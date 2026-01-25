@@ -1,6 +1,192 @@
 #include <iostream>
 using namespace std;
 
+//v0.5.0: 25/01/2026 - Looping Constructs: Iterating Through Code Blocks
+/*int main(void) {
+  int size, bottomRight;
+
+  cout << "Enter the helix size: ";
+  cin >> size;
+
+  // Calculando o valor no canto inferior direito de uma espiral numérica de tamanho ímpar
+  if (size % 2 != 0 && size > 0) {
+    size = size - 1;
+    bottomRight = (size * size) + 1;
+
+    cout << bottomRight << endl;
+  } else {
+    cout << "Invalid input. Please enter a positive odd integer." << endl;
+  }
+
+  system("pause");
+  return 0;
+}*/
+/*int main(void) {
+  unsigned n;
+  unsigned long long factorial = 1;
+
+  cout << "Enter a number to calculate its factorial: ";
+  cin >> n;
+
+  if (n > 0) {
+    for (int i = n; i >= 1; i--) {
+      factorial *= i;
+    }
+    cout << factorial << endl;
+  } else if (n == 0) {
+    cout << "1" << endl;
+  } else {
+    cout << "Invalid input. Please enter a non-negative integer." << endl;
+  }
+
+  system("pause");
+  return 0;
+}*/
+/*int main(void) {
+  int n;
+  unsigned long long fib1 = 1., fib2 = 1., fibn;
+
+  cout << "Enter the Fibonacci term to calculate (n > 0): ";
+  cin >> n;
+
+  if (n > 0) {
+    if (n == 1 || n == 2) {
+      fibn = 1.;
+    } else {
+      for (int i = 3; i <= n; i++) {
+        fibn = fib1 + fib2;
+        fib1 = fib2;
+        fib2 = fibn;
+      }
+    }
+    cout.precision(20);
+    cout << fibn << endl;
+  } else {
+    cout << "Invalid input. Please enter a positive integer." << endl;
+  }
+
+  system("pause");
+  return 0;
+}*/
+/*int main(void) {
+  int n;
+
+  cout << "Enter the side size: ";
+  cin >> n;
+
+  if (n > 1 && n <= 65) {
+    cout << '+';
+      for(int i = 0; i < n-2; i++)
+        cout << '-';
+        cout << '+' << endl;
+      for(int i = 0; i < n-2; i++) {
+        cout << '|';
+        for(int j = 0; j < n-2; j++)
+          cout << ' ';
+          cout << '|' << endl;
+      }
+    cout << '+';
+      for(int i = 0; i < n-2; i++)
+        cout << '-';
+        cout << '+' << endl;
+  } else {
+    cout << "Sorry, the side size is too big!" << endl;
+  }
+
+  system("pause");
+	return 0;
+}*/
+/*int main(void) {
+  int n;
+  double pow = 1;
+
+  cout << "Enter the power of 2 to calculate (0 to 63): ";
+  cin >> n;
+
+  if (n < 64 && n >= 0) {
+    for (int i = 0; i < n; i++) {
+      pow /= 2.0;
+    }
+
+    cout.precision(20);
+    cout << pow << endl;
+  } else {
+    cout << "Invalid input. Please enter a number between 0 and 63." << endl;
+  }
+
+  system("pause");
+  return 0;
+}*/
+/*int main(void) {
+  int n;
+  unsigned long long pow = 1;
+
+  cout << "Enter the power of 2 to calculate (0 to 63): ";
+  cin >> n;
+
+  if (n < 64 && n >= 0) {
+    for (int i = 0; i < n; i++) {
+      pow *= 2;
+    }
+    cout << pow << endl;
+  } else {
+    cout << "Invalid input. Please enter a number between 0 and 63." << endl;
+  }
+
+  system("pause");
+  return 0;
+}*/
+/*int main(void) {
+  double pi4 = 0., div = 1.;
+	long   n;
+
+	cout << "Number of iterations? ";
+	cin >> n;
+
+  // Hipótese de Leibniz para o cálculo de Pi: Pi/4 = 1 - 1/3 + 1/5 - 1/7 + 1/9 - 1/11 + ...
+	for (int i = 0; i < n; i++) {
+		if (i % 2 == 1) {
+      pi4 -= 1. / div;
+    } else {
+      pi4 += 1. / div;
+    }
+    div += 2.;
+	}
+
+	cout.precision(20);
+	cout << "Pi = " << (pi4 * 4.) << endl;
+
+  system("pause");
+  return 0;
+}*/
+/*int main(void) {
+  int c0, counter = 0;
+
+  cout << "Enter a number: ";
+  cin >> c0;
+
+  // Hipótese de Collatz: Independentemente do número inicial, a sequência sempre chegará a 1.
+  if (c0 > 0) {
+    while (c0 != 1)
+    {
+      if (c0 % 2 == 0) {
+        c0 = c0 / 2;
+      } else {
+        c0 = (c0 * 3) + 1;
+      }
+
+      cout << c0 << endl;
+      counter++;
+    }
+    cout << "Steps = " << counter << endl;
+  } else {
+    cout << "Invalid input. Please enter a non-negative and non-zero number." << endl;
+  }
+
+  system("pause");
+  return 0;
+}*/
+
 //v0.4.0: 24/01/2026 - If and Else: Enhancing Conditional Instructions in C++
 /*int main(void) {
   int year, a, b, c, d, e, easterDay;
