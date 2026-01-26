@@ -1,6 +1,97 @@
 #include <iostream>
 using namespace std;
 
+// v0.7.0: 26/01/2025 - Switch Statements: Another Perspective on Conditional Logic
+
+/*int main(void)
+{
+  int choice = 1;
+  double val1, val2, result;
+
+  while (choice != 0)
+  {
+    cout << "MENU:" << endl;
+    cout << "\n0 - exit" << endl;
+    cout << "1 - addition" << endl;
+    cout << "2 - subtraction" << endl;
+    cout << "3 - multiplication" << endl;
+    cout << "4 - division" << endl;
+    cout << "\nYour Choice: ";
+
+    cin >> choice;
+
+    switch (choice)
+    {
+    case 0:
+      cout << "\nProgram exited!" << endl;
+      break;
+
+    case 1:
+      cout << "\nEnter the first value: ";
+      cin >> val1;
+      cout << "Enter the second value: ";
+      cin >> val2;
+
+      result = val1 + val2;
+
+      cout << "\nResult: " << result << endl;
+      cout << "" << endl;
+      break;
+
+    case 2:
+      cout << "\nEnter the first value: ";
+      cin >> val1;
+      cout << "Enter the second value: ";
+      cin >> val2;
+
+      result = val1 - val2;
+
+      cout << "\nResult: " << result << endl;
+      cout << "" << endl;
+      break;
+
+    case 3:
+      cout << "\nEnter the first value: ";
+      cin >> val1;
+      cout << "Enter the second value: ";
+      cin >> val2;
+
+      result = val1 * val2;
+
+      cout << "\nResult: " << result << endl;
+      cout << "" << endl;
+      break;
+
+    case 4:
+      cout << "\nEnter the first value: ";
+      cin >> val1;
+      cout << "Enter the second value: ";
+      cin >> val2;
+
+      if (val2 != 0)
+      {
+        result = val1 / val2;
+        cout << "\nResult: " << result << endl;
+        cout << "" << endl;
+      }
+      else
+      {
+        cout << "\nSecond value cannot be zero!" << endl;
+        cout << "" << endl;
+      }
+      break;
+
+    default:
+      cout << "\nEnter a valid option!" << endl;
+      cout << "" << endl;
+      break;
+    }
+  }
+
+  system("pause");
+  return 0;
+}*/
+
 // v0.6.0: 26/01/2026 - Algebra and Computer Logic
 
 /*int main(void)
