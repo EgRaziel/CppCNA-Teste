@@ -1,5 +1,149 @@
 #include <iostream>
+#include <cmath>
 using namespace std;
+
+// v0.8.0: 29/01/2025 - Structures: Their Importance and Functionality
+
+/*int main(void)
+{
+  double matrix[][3] = {{1, 2, 3},
+                        {2, 1, 2},
+                        {3, 2, 1}};
+
+  int side = sizeof(matrix[0]) / sizeof(matrix[0][0]);
+  bool issymmetric = true;
+
+  for (int i = 0; i < side; i++)
+  {
+    for (int j = 0; j < side; j++)
+    {
+      if (matrix[i][j] != matrix[j][i])
+      {
+        issymmetric = false;
+        break;
+      }
+    }
+    if (!issymmetric)
+      break;
+  }
+
+  if (issymmetric)
+    cout << "The matrix is symmetric" << endl;
+  else
+    cout << "The matrix is not symmetric" << endl;
+
+  system("pause");
+  return 0;
+}*/
+
+/*int main(void)
+{
+  double vector[] = {1., 2., 3., 4., 5.};
+  int n = sizeof(vector) / sizeof(vector[0]);
+  double ArithmeticMean;
+  double HarmonicMean;
+  double GeometricMean = 1.;
+  double RootMeanSquare;
+  double pow(double, double), sqrt(double);
+
+  for (int i = 0; i < n; i++)
+  {
+    ArithmeticMean += vector[i];
+    HarmonicMean += 1. / vector[i];
+    GeometricMean *= vector[i];
+    RootMeanSquare += pow(vector[i], 2);
+  }
+
+  ArithmeticMean /= n;
+  HarmonicMean = n / HarmonicMean;
+  GeometricMean = pow(GeometricMean, (1. / n));
+  RootMeanSquare = sqrt(RootMeanSquare / n);
+
+
+  cout << "Arithmetic Mean = " << ArithmeticMean << endl;
+  cout << "Harmonic Mean   = " << HarmonicMean << endl;
+  cout << "Geometric Mean  = " << GeometricMean << endl;
+  cout << "RootMean Square = " << RootMeanSquare << endl;
+
+  cout << endl;
+  system("pause");
+  return 0;
+}*/
+
+/*int main(void)
+{
+  int vector[] = {4, 1, 7, 3, 8, 3, 7, 1, 4};
+  bool ispalindrome = true;
+  int n = sizeof(vector) / sizeof(vector[0]); // Declara n como o tamanho do array dividido pelo tamanho do primeiro elemento (1)
+
+  for (int i = 0; i < n / 2; i++) // Loop que percorre metade do array (independente se for par ou ímpar)
+  {
+    if (vector[i] != vector[n - 1 - i]) // Compara o elemento na posição i com o elemento na posição inversa (n - 1 - i)
+    {
+      ispalindrome = false;
+      break;
+    }
+  }
+
+  if (ispalindrome)
+  {
+    cout << "It's a palindrome";
+  }
+  else
+  {
+    cout << "It isn't a palindrome";
+  }
+
+  cout << endl;
+
+  system("pause");
+  return 0;
+}*/
+
+/*int main(void)
+{
+  int money;
+  int banknotes[] = {50, 20, 10, 5, 1};
+
+  cout << "Money = ";
+  cin >> money;
+
+  for (int i = 0; i < 5; i++)
+  {
+    while (money >= banknotes[i])
+    {
+      cout << banknotes[i] << ' ';
+      money -= banknotes[i];
+    }
+  }
+
+  cout << endl;
+  system("pause");
+  return 0;
+}*/
+
+/*int main(void)
+{
+  int vector1[7] = {4, 7, 2, 8, 1, 3, 0};
+  int vector2[7];
+
+  for (int i = 0; i < 7; i++)
+  {
+    cout << vector1[i] << ' ';
+  }
+
+  cout << endl;
+
+  for (int i = 0; i < 7; i++)
+  {
+    vector2[0] = vector1[6];
+    vector2[i+1] = vector1[i];
+    cout << vector2[i] << ' ';
+  }
+
+  system("pause");
+  return 0;
+}*/
 
 // v0.7.0: 26/01/2025 - Switch Statements: Another Perspective on Conditional Logic
 
