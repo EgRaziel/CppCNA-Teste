@@ -1,6 +1,133 @@
 #include <iostream>
 #include <cmath>
+#include <chrono>
 using namespace std;
+
+// v0.9.0: 05/02/2026 - Declaring and Initializing Structures: Fundamentals and Techniques
+
+/*int main(void)
+{
+  struct Time
+  {
+    int startHours;
+    int startMinutes;
+    int endHours;
+    int endMinutes;
+    int totalHours;
+    int totalMinutes;
+  };
+
+  int startHours, startMinutes, endHours, endMinutes;
+
+  cout << "Enter start hours: ";
+  cin >> startHours;
+  cout << "Enter start minutes: ";
+  cin >> startMinutes;
+
+  if (startHours > 24 || startHours < 0 || startMinutes >= 60 || startMinutes < 0)
+  {
+    cout << "Invalid time input. Please enter hours between 0 and 24, and minutes between 0 and 59." << endl;
+    system("pause");
+    return 1;
+  }
+
+  Time time;
+  time.startHours = startHours;
+  time.startMinutes = startMinutes;
+
+  cout << "Enter end hours: ";
+  cin >> endHours;
+  cout << "Enter end minutes: ";
+  cin >> endMinutes;
+
+  if (endHours > 24 || endHours < 0 || endMinutes >= 60 || endMinutes < 0)
+  {
+    cout << "Invalid time input. Please enter hours between 0 and 24, and minutes between 0 and 59." << endl;
+    system("pause");
+    return 1;
+  }
+
+  time.endHours = endHours;
+  time.endMinutes = endMinutes;
+
+  // Conversão de minutos para horas e de horas para dias, caso os minute >= 60 ou hours >= 24
+  while (time.endMinutes >= 60 || time.startMinutes >= 60 || time.endHours >= 24 || time.startHours >= 24)
+  {
+    time.endMinutes -= 60;
+    time.endHours++;
+    time.startMinutes -= 60;
+    time.startHours++;
+
+    time.endHours -= 24;
+    time.startHours -= 24;
+  }
+
+  if (time.endHours < time.startHours || (time.endHours == time.startHours && time.endMinutes < time.startMinutes))
+  {
+    cout << "End time cannot be earlier than start time." << endl;
+    system("pause");
+    return 1;
+  }
+
+  time.totalHours = time.endHours - time.startHours;
+  time.totalMinutes = time.endMinutes - time.startMinutes;
+
+  // Conversão de minutos para horas, caso os minutos totais sejam negativos (por exemplo, start time = 10:50 e end time = 11:20, totalHours = 1 e totalMinutes = -30)
+  if (time.totalMinutes < 0)
+  {
+    time.totalMinutes += 60;
+    time.totalHours--;
+  }
+
+  cout << "\n" << time.totalHours << ":" << time.totalMinutes << endl;
+
+  system("pause");
+  return 0;
+}*/
+/*int main(void)
+{
+  struct Time
+  {
+    int hours;
+    int minutes;
+  };
+
+  int hours, minutes, moreMinutes;
+
+  cout << "Enter hours: ";
+  cin >> hours;
+  cout << "Enter minutes: ";
+  cin >> minutes;
+
+  if (hours > 24 || hours < 0 || minutes >= 60 || minutes < 0)
+  {
+    cout << "Invalid time input. Please enter hours between 0 and 24, and minutes between 0 and 59." << endl;
+    system("pause");
+    return 1;
+  }
+
+  Time time1;
+  time1.hours = hours;
+  time1.minutes = minutes;
+
+  cout << "Enter minutes to add: ";
+  cin >> moreMinutes;
+
+  time1.minutes += moreMinutes;
+
+  while (time1.minutes >= 60 || time1.hours >= 24) // Conversão de minutos para horas e de horas para dias, caso os minute >= 60 ou hours >= 24
+  {
+    time1.minutes -= 60;
+    time1.hours++;
+
+    time1.hours -= 24;
+  }
+
+  cout << "\n" << time1.hours << ":" << time1.minutes << endl;
+
+  system("pause");
+  return 0;
+}*/
 
 // v0.8.0: 29/01/2025 - Structures: Their Importance and Functionality
 
@@ -867,14 +994,14 @@ using namespace std;
 // v0.1.0: 21/01/2026 - The Basic of Integers and Variables
 
 /*int main(void)
-{
-  int segundos = 60;
-  int result1 = 3 * segundos;
-  int result2 = 6 * segundos;
-  float Pi = 3.141526;
-  float finalResult = (result1 + result2) / Pi;
+    {
+      int segundos = 60;
+      int result1 = 3 * segundos;
+      int result2 = 6 * segundos;
+      float Pi = 3.141526;
+      float finalResult = (result1 + result2) / Pi;
 
-  cout << "Result: " << finalResult << endl;
-  system("pause");
-  return 0;
-}*/
+      cout << "Result: " << finalResult << endl;
+      system("pause");
+      return 0;
+    }*/
