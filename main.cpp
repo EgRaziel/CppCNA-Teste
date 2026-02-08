@@ -3,6 +3,56 @@
 #include <chrono>
 using namespace std;
 
+// v0.10.0: 08/02/2026 - Pointers vs. Arrays: Navigating C++ Data Structures
+
+/*int main(void)
+{
+  int matrix[10][10] = {};
+  int *p = (int *)matrix; // Ponteiro para o primeiro elemento da matriz (matriz é um array de arrays, então o primeiro elemento é o primeiro array)
+
+  for (int i = 0; i < 10; i++)
+  {
+    for (int j = 0; j < 10; j++)
+    {
+      int *q = (p + j * 10) + i; // Acessa o elemento na posição (i, j) da matriz usando aritmética de ponteiros. O deslocamento é calculado como j * 10 (número de elementos em cada linha) + i (número de elementos a serem deslocados dentro da linha)
+      *q = (i + 1) * (j + 1); // Atribui o valor (i + 1) * (j + 1) ao elemento na posição (i, j) da matriz usando o ponteiro q
+    }
+  }
+  
+    for (int i = 0; i < 10; i++)
+    {
+      for (int j = 0; j < 10; j++)
+      {
+        cout.width(4);
+        cout << matrix[i][j];
+      }
+      cout << endl;
+    }
+
+  system("pause");
+  return 0;
+}*/
+/*int main(void)
+{
+  int vector[] = {3, -5, 7, 10, -4, 14, 5, 2, -13};
+  int n = sizeof(vector) / sizeof(vector[0]);
+  int *ptr = vector; // Ponteiro apontando para o primeiro elemento do array
+  int *minPtr = ptr; // Ponteiro para armazenar o endereço do menor elemento
+
+  for (int i = 1; i < n; i++)
+  {
+    if (*(ptr + i) < *minPtr) // Acessa o valor do elemento atual usando aritmética de ponteiros
+    {
+      minPtr = ptr + i; // Atualiza o ponteiro para o menor elemento encontrado
+    }
+  }
+
+  cout << "The minimum value is: " << *minPtr << endl;
+
+  system("pause");
+  return 0;
+}*/
+
 // v0.9.0: 05/02/2026 - Declaring and Initializing Structures: Fundamentals and Techniques
 
 /*int main(void)
