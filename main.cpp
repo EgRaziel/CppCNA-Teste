@@ -1,7 +1,313 @@
 #include <iostream>
 #include <cmath>
 #include <chrono>
+#include <ctime>
+
 using namespace std;
+
+// v0.11.0: 18/02/2026 - Declaring and Defining Functions in C++
+
+/*bool isPrime(int num)
+{
+
+  // Números menores que 2 não são primos
+  if(num < 2)
+  {
+    return false;
+  }
+
+  // Último divisor possível
+  int top = sqrt(num);
+
+  // Tenta dividir num por todos os valores subsequentes começando por 2
+  for(int i = 2; i <= top; i++)
+  {
+    if(num % i == 0)
+    {
+      // Divisão bem-sucedida, num não é primo
+      return false;
+    }
+  }
+
+  // Nenhuma das divisões foi bem-sucedida, num é primo
+  return true;
+}*/
+/*int main(void)
+{
+  for(int i =0; i <= 21; i++)
+  {
+    if(isPrime(i))
+    {
+      cout << i << " ";
+    }
+  }
+
+  cout << endl;
+
+  system("pause");
+  return 0;
+}*/
+
+/*struct Date
+{
+  int day;
+  int month;
+  int year;
+};*/
+/*Date today(void)
+{
+  // Obtém a data atual usando a biblioteca <ctime>
+  time_t t = time(0);
+
+  // Converte o tempo para a estrutura tm, que contém os componentes da data
+  tm tl = *localtime(&t);
+
+  // Cria uma estrutura Date e preenche seus campos com os valores correspondentes da estrutura tm
+  Date date = {tl.tm_year+1900, tl.tm_mon+1, tl.tm_mday};
+
+  return date;
+}*/
+/*int main(void)
+{
+  Date t = today();
+  cout << t.year << "-" << t.month << "-" << t.day << endl;
+
+  system("pause");
+  return 0;
+}*/
+
+/*struct Date
+{
+  int day;
+  int month;
+  int year;
+};*/
+/*bool isLeap(int year)
+{
+  if ((year % 4 == 0) || (year % 400 == 0))
+  {
+    return true;
+  }
+  else if (year % 100 != 0)
+  {
+    return false;
+  }
+}*/
+/*int monthLength(int year, int month)
+{
+  switch(month)
+  {
+    case 1:
+    case 3:
+    case 5:
+    case 7:
+    case 8:
+    case 10:
+    case 12: return 31;
+    case 4:
+    case 6:
+    case 9:
+    case 11: return 30;
+    case 2: if(isLeap(year)) return 29; else return 28;
+    default: return 0;
+  }
+}*/
+/*int dayOfYear(Date date)
+{
+  int days = 0;
+
+  for (int mo = 1; mo < date.month; mo++)
+  {
+    days += monthLength(date.year, mo);
+  }
+  days += date.day;
+  return days;
+}*/
+/*int daysBetween(Date d1, Date d2)
+{
+  // d2.year deve ser maior ou igual a d1.year
+  if(d1.year > d2.year)
+  {
+    return -1;
+  }
+  // Se os anos forem iguais
+  if(d1.year == d2.year)
+  {
+    // d2.month deve ser maior ou igual a d1.month
+    if(d1.month > d2.month)
+    {
+      return -1;
+    }
+    // Se os meses forem iguais
+    if(d1.month == d2.month)
+    {
+      // d2.day deve ser maior ou igual a d1.day
+      if(d1.day > d2.day)
+      {
+        return -1;
+
+        // Caso simples: Mesmo ano, mesmo mês, o resultado é óbvio
+        return d2.day - d1.day;
+      }
+    }
+
+    // O mesmo ano então o número de dias deve ser computado
+    // Usando a função já definida dayOfYear()
+    return dayOfYear(d2) - dayOfYear(d1);
+  }
+
+  int days;
+
+  // Dec31 - último dia do ano
+  Date Dec31 = {d1.year, 12, 31};
+  // Dias desde d1 até o fim do ano
+  days = dayOfYear(Dec31) - dayOfYear(d1);
+
+  // Soma todos os dias em todos os anos intermediários
+  for (int yr = d1.year + 1; yr < d2.year; yr++)
+  {
+    if (isLeap(yr))
+    {
+      days += 366;
+    }
+    else
+    {
+      days += 365;
+    }
+  }
+
+  // Inclui os dias no último ano
+  days += dayOfYear(d2);
+  return days;
+}*/
+/*int main(void)
+{
+  Date since, to;
+  cout << "Enter first date (y m d): ";
+  cin >> since.year >> since.month >> since.day;
+  cout << "Enter second date (y m d): ";
+  cin >> to.year >> to.month >> to.day;
+  cout << daysBetween(since, to) << endl;
+
+  system("pause");
+  return 0;
+}*/
+
+/*struct Date
+{
+  int day;
+  int month;
+  int year;
+};*/
+/*bool isLeap(int year)
+{
+  if ((year % 4 == 0) || (year % 400 == 0))
+  {
+    return true;
+  }
+  else if (year % 100 != 0)
+  {
+    return false;
+  }
+}*/
+/*int monthLength(int year, int month)
+{
+  switch(month)
+  {
+    case 1:
+    case 3:
+    case 5:
+    case 7:
+    case 8:
+    case 10:
+    case 12: return 31;
+    case 4:
+    case 6:
+    case 9:
+    case 11: return 30;
+    case 2: if(isLeap(year)) return 29; else return 28;
+    default: return 0;
+  }
+}*/
+/*int dayOfYear(Date date)
+{
+  int days = 0; // Soma todos os dias em meses anteriores ao date.month
+
+  for (int mo = 1; mo < date.month; mo++)
+  {
+    days += monthLength(date.year, mo);
+  }
+  days += date.day; // Inclui os dias guardados em date.day
+  return days;
+}*/
+/*int main(void)
+{
+  Date d;
+  cout << "Enter year month day: ";
+  cin >> d.year >> d.month >> d.day;
+  cout << dayOfYear(d) << endl;
+
+  system("pause");
+  return 0;
+}*/
+
+/*bool isLeap(int year)
+{
+  if ((year % 4 == 0) || (year % 400 == 0))
+  {
+    return true;
+  }
+  else if (year % 100 != 0)
+  {
+    return false;
+  }
+}*/
+/*int monthLength(int year, int month)
+{
+  int length[2][12] = {{31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31},
+                      {31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31}};
+
+  int newYear = year - 2000;
+  int newMonth = month - 1;
+
+  return length[newYear][newMonth];
+}*/
+/*int main(void)
+{
+  for (int yr = 2000; yr < 2002; yr++)
+  {
+    for (int mo = 1; mo <= 12; mo++)
+    {
+      cout << monthLength(yr, mo) << " ";
+    }
+    cout << endl;
+  }
+
+  system("pause");
+  return 0;
+}*/
+
+/*bool isLeap(int year)
+{
+  if ((year %4 == 0) || (year % 400 == 0))
+  {
+    return true;
+  }
+  else if (year % 100 != 0)
+  {
+    return false;
+  }
+}*/
+/*int main(void)
+{
+  for(int yr = 1995; yr < 2017; yr++)
+  {
+    cout << yr << " -> " << isLeap(yr) << endl;
+  }
+
+  system("pause");
+  return 0;
+}*/
 
 // v0.10.0: 08/02/2026 - Pointers vs. Arrays: Navigating C++ Data Structures
 
@@ -32,6 +338,7 @@ using namespace std;
   system("pause");
   return 0;
 }*/
+
 /*int main(void)
 {
   int vector[] = {3, -5, 7, 10, -4, 14, 5, 2, -13};
@@ -134,6 +441,7 @@ using namespace std;
   system("pause");
   return 0;
 }*/
+
 /*int main(void)
 {
   struct Time
