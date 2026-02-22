@@ -5,6 +5,33 @@
 
 using namespace std;
 
+// v0.12.0: 22/02/2026 - Default Parameters in Functions
+
+/*void increment(int &variable, int expression = 1)
+{
+  variable += expression;
+}*/
+/*int main(void)
+{
+  int var = 0;
+  for(int i = 0; i < 10; i++)
+  {
+    if(i % 2)
+    {
+      increment(var);
+    }
+    else
+    {
+      increment(var, i);
+    }
+  }
+
+  cout << var << endl;
+
+  system("pause");
+  return 0;
+}*/
+
 // v0.11.0: 18/02/2026 - Declaring and Defining Functions in C++
 
 /*bool isPrime(int num)
