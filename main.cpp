@@ -6,6 +6,101 @@
 
 using namespace std;
 
+// v0.14.0: 26/02/2026 - Dynamic Memory Allocation: Managing Memory on Demand
+
+/*struct Collection
+{
+  int elno;
+  int *elements;
+};*/
+/*void AddToCollection(Collection &col, int element)
+{
+  if(col.elno == 0)
+  {
+    col.elno = 1;
+    col.elements = new int[1];
+    col.elements[0] = element;
+  }
+  else
+  {
+    int *t = new int[col.elno + 1];
+    for(int i = 0; i < col.elno; i++)
+    {
+      t[i] = col.elements[i];
+    }
+    t[col.elno++] = element;
+    delete[] col.elements;
+    col.elements = t;
+  }
+}*/
+/*void PrintCollection(Collection col)
+{
+  cout << "[ ";
+  for(int i = 0; i < col.elno; i++)
+  {
+    cout << col.elements[i] << ' ';
+  }
+  cout << "]" << endl;
+}*/
+/*int main(void)
+{
+  Collection collection = {0, NULL};
+  int elems;
+  cout << "How many elements? ";
+  cin >> elems;
+  
+  srand(time(NULL));
+  for(int i = 0; i < elems; i++)
+  {
+    AddToCollection(collection, rand() % 100 + 1);
+  }
+  PrintCollection(collection);
+
+  delete[] collection.elements;
+  system("pause");
+  return 0;
+}*/
+
+/*int main(void)
+{
+  int maxball, ballsno, rnd;
+
+  cout << "Max ball number? ";
+  cin >> maxball;
+  cout << "How many balls? ";
+  cin >> ballsno;
+  srand(time(NULL)); // Inicializa o gerador de números aleatórios com a hora atual para garantir que os resultados sejam diferentes a cada execução
+
+  int *drawn = new int[ballsno]; // Aloca dinamicamente um array de inteiros para armazenar os números sorteados, com o tamanho definido por 'ballsno'
+
+  for(int i = 0; i < ballsno; i++)
+  {
+    bool repeated;
+    do
+    {
+      rnd = rand() % maxball + 1; // Gera um número aleatório entre 1 e 'maxball' (inclusive) usando a função rand() e o operador módulo
+
+      repeated = false; // Inicializa a variável 'repeated' como falsa para verificar se o número gerado já foi sorteado
+
+      for(int j = 0; j < i; j++) // Loop para verificar se o número gerado já está presente no array 'drawn'
+      {
+        if(drawn[j] == rnd) // Se o número gerado for igual a algum dos números já sorteados
+        {
+          repeated = true; // Define 'repeated' como verdadeira, indicando que o número é repetido
+          break; // Sai do loop interno, pois não é necessário verificar os outros números
+        }
+      }
+    } while (repeated);
+    
+    drawn[i] = rnd;
+    cout << drawn[i] << ' ';
+  }
+
+  delete[] drawn; // Libera a memória alocada para o array 'drawn' após o uso
+  system("pause");
+  return 0;
+}*/
+
 // v0.13.0: 26/02/2026 - Overloading Functions
 
 /*void increment(int &varI, int i = 1)
