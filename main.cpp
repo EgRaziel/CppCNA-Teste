@@ -2,9 +2,82 @@
 #include <cmath>
 #include <chrono>
 #include <ctime>
-#include <cstdlib> 
+#include <cstdlib>
+#include <math.h>
 
 using namespace std;
+
+// v0.15.0: 12/03/2026 - Type Conversions
+
+/*bool is_close(double a, double b, double tolerance)
+{
+  if (fabs(a - b) <= tolerance) // Função fabs pega o valor absoluto (positivo) de um número
+  {
+    return true;
+  }
+  return false;
+}*/
+/*int main(void)
+{
+  if (0.3 == 3 * 0.1)
+  {
+    cout << "The numbers are equal";
+  }
+  else
+  {
+    cout << "The numbers are not equal";
+  }
+  cout << endl;
+
+  if (is_close(0.3, 3 * 0.1, 0.00000001))
+  {
+    cout << "The numbers are close enough.";
+  }
+  else
+  {
+    cout << "The numbers are not close enough.";
+  }
+  cout << endl;
+
+  // This should work regardless of the argument order
+  if (is_close(3 * 0.1, 0.3, 0.00000001))
+  {
+    cout << "The numbers are still close enough.";
+  }
+  else
+  {
+    cout << "The numbers are not close enough.";
+  }
+  cout << endl;
+
+  if (is_close(3 * 0.1, 0.31, 0.00000001))
+  {
+    cout << "The numbers are still close enough.";
+  }
+  else
+  {
+    cout << "The numbers are not close enough.";
+  }
+  cout << endl;
+
+  system("pause");
+  return 0;
+}*/
+
+/*int main(void)
+{
+  long long n, soma = 0; // Ao usar int, números muito grandes como 100000 vão dar um resultado diferente do esperado
+  cin >> n;
+
+  for (int i = 1; i <= n; i++)
+  {
+    soma += i;
+  }
+  cout << soma << endl;
+
+  system("pause");
+  return 0;
+}*/
 
 // v0.14.0: 26/02/2026 - Dynamic Memory Allocation: Managing Memory on Demand
 
