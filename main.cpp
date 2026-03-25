@@ -3,9 +3,48 @@
 #include <chrono>
 #include <ctime>
 #include <cstdlib>
-#include <math.h>
+#include <string>
+#include <map>
+#include <cctype>
 
 using namespace std;
+
+// v0.16.0: 24/03/2026 - Advanced String Operations
+
+/*int main()
+{
+  string input;
+  getline(cin, input); // Lê uma linha completa de entrada do usuário e armazena na variável 'input'
+
+  map<char, int> charCount; // Declara um mapa para contar a frequência de cada caractere na string 'input'
+  int totalCount = 0; // Variável para contar o número total de caracteres na string 'input'
+
+  for (char c : input)
+  {
+    if (isalpha(c)) // Verifica se o caractere 'c' é uma letra (ignorando espaços, pontuação, etc.)
+    {
+      charCount[tolower(c)]++; // Converte o caractere para minúsculo usando tolower() para contar letras maiúsculas e minúsculas como a mesma letra
+      totalCount++; // Incrementa a contagem total de caracteres
+    }
+  }
+
+  if (charCount.size() == 26)
+  {
+    cout << "Pangram" << endl;
+  }
+  else
+  {
+    cout << "Not pangram" << endl;
+  }
+
+  for (char c = 'a'; c <= 'z'; c++)
+  {
+    cout << c << " - " << charCount[c] << endl; // Imprime a contagem de cada letra do alfabeto
+  }
+
+  system("pause");
+  return 0;
+}*/
 
 // v0.15.0: 12/03/2026 - Type Conversions
 
