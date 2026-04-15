@@ -6,8 +6,254 @@
 #include <string>
 #include <map>
 #include <cctype>
+#include <sstream>
+#include <algorithm>
 
-using namespace std;
+// v0.17.0: 15/04/2026 - String Functions Overview
+
+/*bool are_anagrams(std::string &word_a, std::string const &word_b)
+{
+  std::string a = word_a;
+  std::transform(a.begin(), a.end(), a.begin(), ::tolower);
+
+  std::string b = word_b;
+  std::transform(b.begin(), b.end(), b.begin(), ::tolower);
+
+  std::sort(a.begin(), a.end());
+  std::sort(b.begin(), b.end());
+  
+  return a == b;
+}*/
+/*int main()
+{
+  std::string word_a, word_b;
+
+  std::cin >> word_a;
+  std::cin >> word_b;
+
+  std::cout << (are_anagrams(word_a, word_b) ? "Anagrams" : "Not anagrams") << "\n";
+
+  system("pause");
+  return 0;
+}*/
+
+/*void remove_word_ci(std::string &sentence, std::string const &word)
+{
+  std::string sentence_copy = sentence;
+  // Converte a string 'sentence_copy' para minúsculo usando a função transform da biblioteca <algorithm> e a função tolower da biblioteca <cctype>
+  std::transform(sentence_copy.begin(), sentence_copy.end(), sentence_copy.begin(), ::tolower);
+  std::string word_copy = word;
+  std::transform(word_copy.begin(), word_copy.end(), word_copy.begin(), ::tolower);
+
+  size_t found = sentence_copy.find(word_copy);
+  size_t word_len = word.length();
+  
+  while (found != std::string::npos)
+  {
+    size_t from = found;
+    size_t len = word_len;
+    bool left_space = found > 0 && sentence[found - 1] == ' '; // Verifica se há um espaço à esquerda da palavra encontrada
+    bool right_space = found + word_len < sentence.length() && sentence[found + word_len] == ' '; // Verifica se há um espaço à direita da palavra encontrada
+    bool left_boundry_ok = left_space || from == 0; // Verifica se a palavra encontrada está no início da string ou se há um espaço à esquerda
+    bool right_boundry_ok = right_space || from + word_len == sentence.length(); // Verifica se a palavra encontrada está no final da string ou se há um espaço à direita
+
+    if (left_boundry_ok && right_boundry_ok)
+    {
+      if (left_space)
+      {
+        from--;
+        len++;
+      }
+      
+      if (!left_space && right_space)
+      {
+        len++;
+      }
+
+      sentence.erase(from, len);
+      sentence_copy.erase(from, len);
+    }
+    
+    found = sentence_copy.find(word_copy, found);
+  }
+}*/
+/*int main()
+{
+  std::string stop_words_string;
+  std::getline(std::cin, stop_words_string);
+
+  std::string sentence;
+  std::getline(std::cin, sentence);
+
+  // Remove as stop words da string 'sentence' usando a função remove_word_ci() para cada palavra na string 'stop_words_string'
+  size_t word_end = stop_words_string.find(',');
+
+  while (word_end != std::string::npos)
+  {
+    remove_word_ci(sentence, stop_words_string.substr(0, word_end)); // Remove a palavra encontrada na posição 0 até a posição 'word_end' da string 'stop_words_string' da string 'sentence'
+    stop_words_string.erase(0, word_end + 1); // Remove a palavra encontrada da string 'stop_words_string' para processar a próxima palavra
+    word_end = stop_words_string.find(',');
+  }
+
+  if (stop_words_string.length() > 0)
+  {
+    remove_word_ci(sentence, stop_words_string);
+  }
+  
+  std::cout << sentence << "\n";
+
+  system("pause");
+  return 0;
+}*/
+
+/*int main()
+{
+  std::string from;
+  std::getline(std::cin, from);
+
+  std::string to;
+  std::getline(std::cin, to);
+
+  std::string sentence;
+  std::getline(std::cin, sentence);
+
+  // Muda todas as ocorrências de 'from' para 'to' na string 'sentence'
+  size_t found = sentence.find(from); // Procura a primeira ocorrência de 'from' na string 'sentence' e armazena a posição encontrada na variável 'found'
+  size_t fromLen = from.length(); // Armazena o comprimento da string 'from' na variável 'fromLen'
+  size_t toLen = to.length(); // Armazena o comprimento da string 'to' na variável 'toLen'
+
+  while (found != std::string::npos)
+  {
+    sentence.replace(found, fromLen, to); // Substitui a parte da string 'sentence' que começa na posição 'found' e tem o comprimento 'fromLen' pela string 'to' usando a função replace()
+    // Procura a próxima ocorrência de 'from' na string 'sentence' a partir da posição 'found + toLen + 1' e armazena a nova posição encontrada na variável 'found'
+    found = sentence.find(from, found + toLen + 1);
+  }
+  
+  std::cout << sentence << "\n";
+
+  system("pause");
+  return 0;
+}*/
+
+/*int main()
+{
+  std::string sentence;
+  std::getline(std::cin, sentence);
+
+  std::string result;
+  std::string word;
+
+  for (char c : sentence) // Percorre cada caractere 'c' na string 'sentence'
+  {
+    if (std::isalpha(c) || c == '\'') // Verifica se o caractere 'c' é uma letra (isalpha) ou um apóstrofo (') usando a função isalpha da biblioteca <cctype>
+    {
+      word += std::tolower(c); // Converte o caractere 'c' para minúsculo usando a função tolower da biblioteca <cctype> e adiciona ao final da string 'word'
+    }
+    else
+    {
+      if (!word.empty())
+      {
+        if (result.find(word) == std::string::npos)
+        {
+          result += word + " "; // Se a palavra 'word' não for encontrada na string 'result' (find retorna npos), adiciona 'word' seguida de um espaço ao final de 'result'
+        }
+        word.clear(); // Limpa a string 'word' para começar a construir a próxima palavra
+      }
+    }
+  }
+
+  if (!word.empty())
+  {
+    if (result.find(word) == std::string::npos)
+    {
+      result += word + " ";
+    }
+  }
+
+  std::cout << result << std::endl;
+
+  system("pause");
+  return 0;
+}*/
+
+/*int main()
+{
+  std::string sentence;
+  std::getline(std::cin, sentence); // Lê uma linha completa de entrada do usuário e armazena na variável 'sentence'
+
+  size_t found = sentence.find(" "); // Procura a primeira ocorrência de um espaço em branco na string 'sentence' e armazena a posição encontrada na variável 'found'
+  while (found != std::string::npos) // Enquanto a posição encontrada for diferente de npos (indicando que um espaço em branco foi encontrado)
+  {
+    size_t count = 1; // Variável para contar o número de ocorrências do espaço em branco encontrado
+    while (sentence[found + count + 1] == ' ')
+    {
+      count++; // Incrementa a contagem de espaços em branco consecutivos
+    }
+    // Remove os espaços em branco consecutivos encontrados na posição 'found' da string 'sentence', usando a função erase() que recebe a posição inicial e o número de caracteres a serem removidos
+    sentence.erase(found, count);
+    // Procura a próxima ocorrência de um espaço em branco na string 'sentence' a partir da posição 'found' atualizada, e armazena a nova posição encontrada na variável 'found'
+    found = sentence.find(" ", found + 1);
+  }
+
+  std::cout << sentence << "\n"; // Imprime a string 'sentence' após a remoção dos espaços em branco consecutivos
+  
+  system("pause");
+  return 0;
+}*/
+
+/*std::string checkIPAdsress(std::string address)
+{
+  std::stringstream splited(address);
+  std::string s;
+  int partsCount = 0;
+  while (std::getline(splited, s, '.'))
+  {
+    if (3 < s.length() || s.length() < 1)
+    {
+      return "Too many characters in part";
+    }
+
+    if (partsCount > 4)
+    {
+      return "Incorrect parts count";
+    }
+
+    for (int i = 0; i < s.length(); i++)
+    {
+      if (!isdigit(s[i]))
+      {
+        return "Only digits and dots allowed";
+      }
+    }
+
+    int partValue = std::atoi(s.c_str());
+
+    if (partValue > 255)
+    {
+      return "Too big value of part";
+    }
+
+    partsCount++;
+  }
+
+  if (partsCount != 4)
+  {
+    return "Too many parts";
+  }
+
+  return "Correct IP"; // Estudante pode guardar o resultado em uma variável também
+}*/
+/*int main()
+{
+  std::cout << checkIPAdsress("1.2.3.4") << std::endl;
+  std::cout << checkIPAdsress("255.255.255.255") << std::endl;
+  std::cout << checkIPAdsress("355.255.255.255") << std::endl;
+  std::cout << checkIPAdsress("1000.255.255.255") << std::endl;
+  std::cout << checkIPAdsress("ASD.255.255.255") << std::endl;
+
+  system("pause");
+  return 0;
+}*/
 
 // v0.16.0: 24/03/2026 - Advanced String Operations
 
