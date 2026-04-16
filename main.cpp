@@ -9,6 +9,263 @@
 #include <sstream>
 #include <algorithm>
 
+// v0.17.1: 16/04/2026 - String Functions Overview pt2
+
+/*void replace_all(std::string &text, std::string const &from, std::string const &to)
+{
+  size_t fromLen = from.length();
+  size_t toLen = to.length();
+
+  size_t found = text.find(from);
+
+  while (found != std::string::npos) // Enquanto a posição encontrada for diferente de npos (indicando que a string 'from' foi encontrada)
+  {
+    text.replace(found, fromLen, to);
+    // Procura a próxima ocorrência da string 'from' na string 'text' a partir da posição 'found + toLen + 1' e armazena a nova posição encontrada na variável 'found'
+    found = text.find(from, found + toLen + 1);
+  }
+}*/
+/*int main()
+{
+  std::string values;
+  std::getline(std::cin, values);
+
+  std::string sentence;
+  std::getline(std::cin, sentence);
+
+  size_t comma_pos = values.find(',');
+
+  while (comma_pos != std::string::npos)
+  {
+    size_t equals_pos = values.find('=');
+
+    if (equals_pos < comma_pos && equals_pos != std::string::npos)
+    {
+      replace_all(sentence, "[" + values.substr(0, equals_pos) + "]", values.substr(equals_pos + 1, comma_pos - equals_pos - 1));
+    }
+    
+    values.erase(0, comma_pos + 1);
+    comma_pos = values.find(',');
+  }
+  
+  size_t equals_pos = values.find('=');
+  size_t len_values = values.length();
+
+  if (equals_pos < len_values && equals_pos != std::string::npos)
+  {
+    replace_all(sentence, "[" + values.substr(0, equals_pos) + "]", values.substr(equals_pos + 1, len_values - equals_pos - 1));
+  }
+  
+  std::cout << sentence << "\n";
+
+  system("pause");
+  return 0;
+}*/
+
+/*int main()
+{
+  std::string password;
+  std::getline(std::cin, password);
+
+  bool is_long_enough = false;
+  bool has_upper = false;
+  bool has_digit = false;
+  bool has_special = false;
+  bool chars_valid = false;
+
+  // Manipula a senha aqui e imprime o resultado da validação
+  size_t len_pass = password.size();
+  is_long_enough = len_pass > 8;
+
+  for (int i = 0; !chars_valid && (i < len_pass); i++)
+  {
+    if (::isupper(password[i])) { has_upper = true; } // Verifica se o caractere na posição i da string 'password' é uma letra maiúscula, e se for, define a variável 'has_upper' como verdadeira
+    if (::isdigit(password[i])) { has_digit = true; } // Verifica se o caractere na posição i da string 'password' é um dígito decimal, e se for, define a variável 'has_digit' como verdadeira
+    if (::ispunct(password[i])) { has_special = true; } // Verifica se o caractere na posição i da string 'password' é um caractere de pontuação, e se for, define a variável 'has_special' como verdadeira
+    chars_valid = has_upper && has_digit && has_special;
+  }
+  
+  if (!is_long_enough)
+  {
+    std::cout << "The password must be 8 characters long" << std::endl;
+  }
+
+  if (!has_upper)
+  {
+    std::cout << "The password must have at least one uppercase letter" << std::endl;
+  }
+
+  if (!has_digit)
+  {
+    std::cout << "The password must have at least one digit" << std::endl;
+  }
+
+  if (!has_special)
+  {
+    std::cout << "The password must have at least one special character" << std::endl;
+  }
+  
+  if (chars_valid && is_long_enough)
+  {
+    std::cout << "The password is valid" << std::endl;
+  }
+  
+  system("pause");
+  return 0;
+}*/
+
+/*void bolden(std::string &text, size_t start, size_t end)
+{
+  std::string boldened = text.substr(start + 1, end - start - 1); // Extrai a parte da string 'text' que está entre os índices 'start' e 'end', excluindo os caracteres de asterisco
+  // Converte a string 'boldened' para maiúsculo usando a função transform da biblioteca <algorithm> e a função toupper da biblioteca <cctype>
+  std::transform(boldened.begin(), boldened.end(), boldened.begin(), ::toupper);
+
+  // Substitui a parte da string 'text' que começa no índice 'start' e tem o comprimento 'end - start + 1' pela string 'boldened' usando a função replace()
+  text.replace(start, end - start + 1, boldened);
+}*/
+/*void emphasise(std::string &text, size_t start, size_t end)
+{
+  std::string emphasised = text.substr(start + 1, end - start - 1); // Extrai a parte da string 'text' que está entre os índices 'start' e 'end', excluindo os caracteres de sublinhado
+  std::string::iterator next = emphasised.begin();
+  size_t chars_after_insert = 0; // Variável para contar o número de caracteres inseridos na string 'emphasised' devido à adição de asteriscos
+
+  while (next + 1 != emphasised.end())
+  {
+    emphasised.insert(next + 1, ' '); // Insere um espaço em branco após o caractere apontado por 'next' na string 'emphasised' usando a função insert()
+    chars_after_insert += 2; // Incrementa a contagem de caracteres inseridos em 2, pois cada inserção de espaço adiciona 2 caracteres (o espaço e o próximo caractere)
+    // Atualiza o iterador 'next' para apontar para o próximo caractere a ser processado na string 'emphasised', levando em consideração os caracteres inseridos
+    next = emphasised.begin() + chars_after_insert;
+  }
+
+  // Substitui a parte da string 'text' que começa no índice 'start' e tem o comprimento 'end - start + 1' pela string 'emphasised' usando a função replace()
+  text.replace(start, end - start + 1, " " + emphasised + " ");
+}
+bool find_pair(std::string const &text, size_t &start, size_t &end, char &found_char)
+{
+  start = std::string::npos;
+  end = std::string::npos;
+
+  size_t start_asterix_pos = text.find_first_of('*'); // Procura a primeira ocorrência do caractere '*' na string 'text' e armazena a posição encontrada na variável 'start_asterix_pos'
+  size_t start_underscore_pos = text.find_first_of('_'); // Procura a primeira ocorrência do caractere '_' na string 'text' e armazena a posição encontrada na variável 'start_underscore_pos'
+}*/
+/*int main()
+{
+  std::string sentence;
+  std::getline(std::cin, sentence);
+
+  size_t found = sentence.find_first_of("_*"); // Procura a primeira ocorrência de qualquer um dos caracteres '*' ou '_' na string 'sentence' e armazena a posição encontrada na variável 'found'
+
+  while (found != std::string::npos)
+  {
+    size_t start = 0, end = 0;
+    char found_char = 0;
+
+    if (find_pair(sentence, start, end, found_char))
+    {
+      if (found_char == '*')
+      {
+        bolden(sentence, start, end);
+      }
+      
+      if (found_char == '_')
+      {
+        emphasise(sentence, start, end);
+      }
+    }
+    
+    else
+    {
+      sentence.erase(found, 1); // Se não for encontrada uma correspondência válida para os caracteres '*' ou '_', remove o caractere encontrado da string 'sentence' usando a função erase()
+    }
+
+    // Procura a próxima ocorrência de qualquer um dos caracteres '*' ou '_' na string 'sentence' a partir da posição 'found' atualizada, e armazena a nova posição encontrada na variável 'found'
+    found = sentence.find_first_of("_*", found);
+  }
+  
+  std::cout << sentence << "\n";
+
+  system("pause");
+  return 0;
+}*/
+
+/*bool chars_match(int pattern_char, int text_char)
+{
+  // A letra 'D' vai combinar com qualquer dígito decimal
+  if (pattern_char == 'D')
+  {
+    return isdigit(text_char);
+  }
+  // A letra 'A' vai combinar com qualquer letra alfabética
+  if (pattern_char == 'A')
+  {
+    return isalpha(text_char);
+  }
+  // O caractere '?' vai combinar com qualquer caractere
+  if (pattern_char == '?')
+  {
+    return true;
+  }
+  // Letras minúsculas vão combinar apenas com a mesma letra minúscula
+  if (islower(pattern_char))
+  {
+    return pattern_char == tolower(text_char);
+  }
+  // Qualquer pontuação, exceto '?', vai combinar apenas com a mesma pontuação
+  if (ispunct(pattern_char))
+  {
+    return pattern_char == text_char;
+  }
+  
+  return false;
+}*/
+/*size_t find_match(std::string const &pattern, std::string const &text, size_t start = 0)
+{
+  size_t match_pos = std::string::npos;
+  size_t len_pattern = pattern.length();
+  
+  if (len_pattern == 0 || start < 0)
+  {
+    return match_pos;
+  }
+  
+  for (size_t idx_text = start; match_pos == std::string::npos && idx_text + len_pattern <= text.length(); idx_text++)
+  {
+    bool all_match = true;
+
+    for (size_t idx_pattern = 0; all_match && idx_pattern < len_pattern; idx_pattern++)
+    {
+      all_match = chars_match(pattern[idx_pattern], text[idx_text + idx_pattern]);
+    }
+
+    if (all_match)
+    {
+      match_pos = idx_text;
+    }
+  }
+  
+  return match_pos;
+}*/
+/*int main()
+{
+  std::string pattern;
+  std::getline(std::cin, pattern);
+
+  std::string sentence;
+  std::getline(std::cin, sentence);
+  //Combinar padrão com a sentença
+  size_t len_pattern = pattern.length();
+  size_t found = find_match(pattern, sentence);
+
+  while (found != std::string::npos)
+  {
+    std::cout << sentence.substr(found, len_pattern) << std::endl;
+    found = find_match(pattern, sentence, found + 1);
+  }
+  
+  system("pause");
+  return 0;
+}*/
+
 // v0.17.0: 15/04/2026 - String Functions Overview
 
 /*bool are_anagrams(std::string &word_a, std::string const &word_b)
